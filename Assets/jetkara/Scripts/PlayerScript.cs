@@ -52,6 +52,10 @@ public class PlayerScript : MonoBehaviour
 
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * 200);
+
+        // ParticleSystem part = GetComponent<ParticleSystem>();
+        // part.Play();
+        // Destroy(gameObject, part.main.duration);
     }
 
     void OnTriggerEnter2D(Collider2D col)

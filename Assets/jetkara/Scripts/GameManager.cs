@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     void CreateObjects()
     {
         // https://answers.unity.com/questions/1397022/how-to-make-randomrange-step-by-a-certain-amount.html
-        Instantiate(Obstacle_prefb, new Vector3((Mathf.Floor(Random.Range(7.5f, 15.5f) / 2f)) * 1.2f, Random.Range(-2f, 2f), 0), Quaternion.identity);
+        Instantiate(Obstacle_prefb, new Vector3((Mathf.Floor(Random.Range(10.5f, 15.5f) / 2f)) * 1.2f, Random.Range(-2f, 2f), 0), Quaternion.identity);
         counter += 1;
         Debug.Log(counter);
         // counter += Random.Range(2f, 4f);
