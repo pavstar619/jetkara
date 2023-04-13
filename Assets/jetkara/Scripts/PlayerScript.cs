@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
     bool dead;
     public AudioClip[] auClip;
     public GameObject fire;
+    public GameObject deathEffect;
 
     private SpriteRenderer spriteRendererObject;
 
@@ -58,6 +59,16 @@ public class PlayerScript : MonoBehaviour
         // Destroy(gameObject, part.main.duration);
     }
 
+    void Die()
+    {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        // Destroy(gameObject);
+        spriteRendererObject.flipY = true;
+        GetComponent<AudioSource>().clip = auClip[1];
+        GetComponent<AudioSource>().Play();
+        Invoke("BackToMain", 1.5f);
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (!dead)
@@ -74,10 +85,8 @@ public class PlayerScript : MonoBehaviour
             {
                 Handheld.Vibrate();
                 dead = true;
-                spriteRendererObject.flipY = true;
-                GetComponent<AudioSource>().clip = auClip[1];
-                GetComponent<AudioSource>().Play();
-                Invoke("BackToMain", 1.5f);
+                Die();
+
             }
         }
     }
